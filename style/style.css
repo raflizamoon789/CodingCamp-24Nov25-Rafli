@@ -1,0 +1,90 @@
+body {
+    background-color: rgb(220, 223, 225);
+    font-family: arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.ganteng {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+}
+.h {
+    margin-top: 1vh;
+    font-weight: 900;
+    font-size: 21px;
+}
+input {
+    border-radius: 6px;
+    padding: 6px;
+    border: 2px solid rgb(103, 103, 103);
+    color: rgb(103, 103, 103);
+    outline: none;
+}
+.list {
+    border: 2px solid;
+    color: rgb(0, 0, 0);
+    padding: 12px;
+    width: 95%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0;
+
+}
+.dd {
+    border: none;
+    background-color: rgb(89, 94, 91);
+    border-radius: 5px;
+    color: white;
+    height: 4vh;
+    width: 4vh;
+    font-weight: bold;
+}
+.dd:hover {
+    cursor: pointer;
+}
+.tengah {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0.7vh;
+}
+.fil {
+    color: white;
+    background-color: rgb(31, 31, 31);
+    padding: 1.4vh;
+    font-size: 0.7rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+}
+.fil:hover{
+    cursor: pointer;
+}
+.del {
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    border: 2px solid;
+    padding: 1.4vh;
+    font-size: 0.7rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+}
+.del:hover {
+    cursor: pointer;
+}
+.isi {
+    background-color: rgb(89, 94, 91);
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    box-sizing: border-box;
+    padding: 10px;
+    color: white;
+}
