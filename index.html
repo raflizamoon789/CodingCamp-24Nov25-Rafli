@@ -3,20 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do list</title>
+    <title>To Do List</title>
+    <!-- Google Font: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-    <div class="ganteng">
-    <p class="h">Todo List</p>
-        <div>
-            <input type="text" placeholder="add todo..." id="todo">
-            <input type="Date" id="tanggal">
-            <button type="submit" onclick="tambah()">+</button></div>
-            <div class="list">
-                <p id="output">no taks found</p>
+    <div class="todo-card ganteng">
+        <header class="card-header">
+            <h1 class="h">Todo List</h1>
+            <p class="subtitle">Catat dan kelola tugas harianmu dengan rapi</p>
+        </header>
+
+        <div class="input-group">
+            <input type="text" placeholder="Tambah tugas baru..." id="todo">
+            <input type="date" id="tanggal">
+            <button class="btn-add dd" type="button" onclick="tambah()" title="Tambah tugas">+</button>
+        </div>
+
+        <div class="action-group tengah">
+            <button class="btn-filter fil" type="button">FILTER</button>
+            <button class="btn-delete-all del" type="button">DELETE ALL</button>
+        </div>
+
+        <div class="list-container list">
+            <div class="list-header">
+                <h4>List Tugas</h4>
             </div>
+            <div class="isi">
+                <p id="output">Belum ada tugas</p>
+            </div>
+        </div>
     </div>
+    
     <script src="script/script.js"></script>
 </body>
 </html>

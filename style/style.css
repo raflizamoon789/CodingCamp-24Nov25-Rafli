@@ -1,90 +1,341 @@
+/* ===================================================
+   1. RESET & DASAR (DARK THEME)
+   =================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    background-color: rgb(220, 223, 225);
-    font-family: arial, sans-serif;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-}
-.ganteng {
-    background-color: rgb(255, 255, 255);
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 12px;
+    color: #f1f5f9;
 }
-.h {
-    margin-top: 1vh;
-    font-weight: 900;
-    font-size: 21px;
-}
-input {
-    border-radius: 6px;
-    padding: 6px;
-    border: 2px solid rgb(103, 103, 103);
-    color: rgb(103, 103, 103);
-    outline: none;
-}
-.list {
-    border: 2px solid;
-    color: rgb(0, 0, 0);
-    padding: 12px;
-    width: 95%;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 0;
 
+/* ===================================================
+   2. CONTAINER UTAMA (CARD GELAP)
+   =================================================== */
+.todo-card,
+.ganteng {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    width: 100%;
+    max-width: 460px;
+    padding: 28px 24px;
+    border-radius: 16px;
+    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.6),
+                0 0 0 1px rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
 }
-.dd {
-    border: none;
-    background-color: rgb(89, 94, 91);
-    border-radius: 5px;
-    color: white;
-    height: 4vh;
-    width: 4vh;
-    font-weight: bold;
+
+/* Header */
+.card-header {
+    text-align: center;
 }
-.dd:hover {
+
+.card-header .h {
+    font-size: 24px;
+    font-weight: 700;
+    color: #f8fafc;
+    letter-spacing: -0.5px;
+}
+
+.card-header .subtitle {
+    font-size: 13px;
+    color: #94a3b8;
+    margin-top: 4px;
+}
+
+/* ===================================================
+   3. INPUT SECTION (TAMBAH TUGAS)
+   =================================================== */
+.input-group {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+input {
+    border: 1.5px solid #334155;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 14px;
+    font-family: inherit;
+    color: #f8fafc;
+    background-color: #0f172a;
+    outline: none;
+    color-scheme: dark; /* Mendukung datepicker bawaan gelap */
+    transition: all 0.2s ease;
+}
+
+input::placeholder {
+    color: #64748b;
+}
+
+input:focus {
+    border-color: #6366f1;
+    background-color: #0b1329;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+}
+
+#todo {
+    flex: 1;
+    min-width: 0;
+}
+
+#tanggal {
+    font-size: 12px;
+    color: #cbd5e1;
     cursor: pointer;
 }
+
+/* Tombol Tambah (+) */
+.btn-add,
+.dd {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    font-size: 22px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+}
+
+.btn-add:hover,
+.dd:hover {
+    background: linear-gradient(135deg, #4f46e5, #4338ca);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(99, 102, 241, 0.45);
+}
+
+.btn-add:active,
+.dd:active {
+    transform: translateY(0);
+}
+
+/* ===================================================
+   4. ACTION BUTTONS (FILTER & DELETE ALL)
+   =================================================== */
+.action-group,
 .tengah {
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    margin: 0.7vh;
+    gap: 10px;
 }
+
+.btn-filter,
 .fil {
-    color: white;
-    background-color: rgb(31, 31, 31);
-    padding: 1.4vh;
-    font-size: 0.7rem;
-    border-radius: 0.5rem;
+    flex: 1;
+    background-color: #334155;
+    color: #e2e8f0;
+    border: 1px solid #475569;
+    padding: 9px 14px;
+    font-size: 12px;
     font-weight: 600;
-}
-.fil:hover{
+    letter-spacing: 0.5px;
+    border-radius: 8px;
     cursor: pointer;
+    transition: all 0.2s ease;
 }
+
+.btn-filter:hover,
+.fil:hover {
+    background-color: #475569;
+    color: #ffffff;
+}
+
+.btn-filter.active,
+.fil.active {
+    background-color: #6366f1;
+    color: #ffffff;
+    border-color: #6366f1;
+}
+
+.btn-delete-all,
 .del {
-    color: rgb(0, 0, 0);
-    background-color: rgb(255, 255, 255);
-    border: 2px solid;
-    padding: 1.4vh;
-    font-size: 0.7rem;
-    border-radius: 0.5rem;
+    flex: 1;
+    background-color: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    padding: 9px 14px;
+    font-size: 12px;
     font-weight: 600;
-}
-.del:hover {
+    letter-spacing: 0.5px;
+    border-radius: 8px;
     cursor: pointer;
+    transition: all 0.2s ease;
 }
-.isi {
-    background-color: rgb(89, 94, 91);
-    width: 100%;
-    border-radius: 10px;
+
+.btn-delete-all:hover,
+.del:hover {
+    background-color: rgba(239, 68, 68, 0.25);
+    border-color: #ef4444;
+    color: #fca5a5;
+}
+
+/* ===================================================
+   5. DAFTAR TUGAS (LIST CONTAINER)
+   =================================================== */
+.list-container,
+.list {
     display: flex;
-    box-sizing: border-box;
-    padding: 10px;
-    color: white;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.list-header h4 {
+    font-size: 13px;
+    font-weight: 600;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.isi {
+    background-color: #0f172a;
+    border: 1.5px dashed #334155;
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 80px;
+    justify-content: center;
+}
+
+/* Teks saat belum ada tugas */
+#output {
+    color: #64748b;
+    font-size: 13px;
+    text-align: center;
+    margin: 16px 0;
+}
+
+/* ===================================================
+   6. ITEM TUGAS (TODO ITEM)
+   =================================================== */
+.item {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+}
+
+.item:hover {
+    border-color: #475569;
+    background-color: #243248;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1;
+    min-width: 0;
+}
+
+.item-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: #f8fafc;
+    word-break: break-word;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.item-text:hover {
+    color: #818cf8;
+}
+
+.item-date {
+    font-size: 11px;
+    color: #cbd5e1;
+    background-color: #334155;
+    padding: 2px 7px;
+    border-radius: 4px;
+    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Gaya saat tugas ditandai selesai (diklik) */
+.item.completed {
+    background-color: #0f172a;
+    opacity: 0.6;
+    border-color: #1e293b;
+}
+
+.item.completed .item-text {
+    text-decoration: line-through;
+    color: #64748b;
+}
+
+.item.completed .item-date {
+    background-color: #1e293b;
+    color: #64748b;
+}
+
+/* Tombol hapus satuan (✕) */
+.btn-delete-item {
+    background: transparent;
+    border: none;
+    color: #64748b;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.btn-delete-item:hover {
+    background-color: rgba(239, 68, 68, 0.2);
+    color: #f87171;
+}
+
+/* ===================================================
+   7. RESPONSIVE MOBILE
+   =================================================== */
+@media (max-width: 420px) {
+    .input-group {
+        flex-wrap: wrap;
+    }
+
+    #todo {
+        width: 100%;
+        flex: auto;
+    }
+
+    #tanggal {
+        flex: 1;
+    }
 }
